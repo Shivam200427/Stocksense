@@ -1,0 +1,35 @@
+{
+  "created_at": "20260416_114643",
+  "tickers_requested": [
+    "RELIANCE.NS",
+    "TCS.NS",
+    "INFY.NS",
+    "HDFCBANK.NS",
+    "ICICIBANK.NS",
+    "SBIN.NS",
+    "LT.NS",
+    "ITC.NS",
+    "HINDUNILVR.NS",
+    "KOTAKBANK.NS",
+    "BAJFINANCE.NS",
+    "AXISBANK.NS"
+  ],
+  "tickers_used": [
+    "RELIANCE.NS",
+    "TCS.NS",
+    "INFY.NS",
+    "HDFCBANK.NS",
+    "ICICIBANK.NS",
+    "SBIN.NS",
+    "LT.NS",
+    "ITC.NS",
+    "HINDUNILVR.NS",
+    "KOTAKBANK.NS",
+    "BAJFINANCE.NS",
+    "AXISBANK.NS"
+  ],
+  "best_ticker": "KOTAKBANK.NS",
+  "best_rmse": 10.118344801542605,
+  "average_rmse": 162.4224332726687,
+  "average_directional_accuracy": 0.4868301544050863
+}
