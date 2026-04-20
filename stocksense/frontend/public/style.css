@@ -1,0 +1,371 @@
+:root {
+  --bg: #0f1117;
+  --surface: #161b24;
+  --surface-2: #1d2432;
+  --text: #d9e1f2;
+  --muted: #9ca9c7;
+  --accent: #4f8ef7;
+  --success: #00d26a;
+  --success-soft: #6ff2a8;
+  --hold: #95a2bd;
+  --sell: #ff9f43;
+  --strong-sell: #ff4d4f;
+  --border: rgba(128, 156, 215, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at 15% 10%, #1a253b 0%, #0f1117 45%),
+    radial-gradient(circle at 80% 15%, #162544 0%, transparent 40%),
+    #0f1117;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 14, 22, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+input,
+select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  outline: none;
+  min-width: 220px;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.18);
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn.primary {
+  color: #fff;
+  background: linear-gradient(135deg, #4f8ef7, #3f74c7);
+  box-shadow: 0 6px 20px rgba(79, 142, 247, 0.28);
+}
+
+.btn.secondary {
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.container {
+  padding: 1.1rem 1.2rem 2rem;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.ga-progress-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.progress-label {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #0d1320;
+}
+
+.progress-indeterminate {
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: loading-bar 1.2s infinite;
+}
+
+@keyframes loading-bar {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 0.95rem;
+}
+
+.metric-card,
+.panel {
+  background: linear-gradient(180deg, rgba(31, 40, 57, 0.9), rgba(20, 26, 37, 0.92));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.95rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.metric-card:hover,
+.panel:hover {
+  border-color: rgba(79, 142, 247, 0.55);
+  box-shadow: 0 10px 30px rgba(79, 142, 247, 0.12);
+}
+
+.metric-card h3,
+.panel h2 {
+  margin: 0 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.metric-value {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.signal-strong-buy {
+  background: rgba(0, 210, 106, 0.18);
+  color: var(--success);
+}
+
+.signal-buy {
+  background: rgba(111, 242, 168, 0.18);
+  color: var(--success-soft);
+}
+
+.signal-hold {
+  background: rgba(149, 162, 189, 0.18);
+  color: var(--hold);
+}
+
+.signal-sell {
+  background: rgba(255, 159, 67, 0.2);
+  color: var(--sell);
+}
+
+.signal-strong-sell {
+  background: rgba(255, 77, 79, 0.2);
+  color: var(--strong-sell);
+}
+
+.full {
+  margin-bottom: 0.95rem;
+}
+
+.row.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.95rem;
+  margin-bottom: 0.95rem;
+}
+
+.stacked-mini {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+canvas {
+  width: 100% !important;
+  height: 320px !important;
+}
+
+.stacked-mini canvas {
+  height: 210px !important;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.multi-controls {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: minmax(260px, 380px) auto;
+  align-items: start;
+  margin-bottom: 0.8rem;
+}
+
+#multiTickerSelect {
+  width: 100%;
+  min-height: 220px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.7rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(128, 156, 215, 0.14);
+  font-size: 0.9rem;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.86rem;
+}
+
+#toast-container {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.toast {
+  background: #182131;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  min-width: 220px;
+  animation: fade-in 0.2s ease;
+}
+
+.toast.error {
+  border-left-color: var(--strong-sell);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .row.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  input,
+  select {
+    min-width: 100%;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .multi-controls {
+    grid-template-columns: 1fr;
+  }
+}
