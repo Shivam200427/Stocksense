@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= appTitle %></title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="navbar">
+      <div class="logo">StockSense</div>
+      <div class="controls">
+        <select id="tickerSelect">
+          <option value="">Select company</option>
+        </select>
+        <button id="analyzeBtn" class="btn primary">Analyze</button>
+        <button id="quickBtn" class="btn secondary">Quick Predict</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="ga-progress-section hidden" id="gaProgressSection">
+        <div class="progress-label">Running GA optimization...</div>
+        <div class="progress-track">
+          <div class="progress-indeterminate"></div>
+        </div>
+      </section>
+
+      <section class="metrics-grid">
+        <article class="metric-card">
+          <h3>Latest Signal</h3>
+          <p id="latestSignal" class="metric-value">-</p>
+        </article>
+        <article class="metric-card">
+          <h3>Next Trading Date</h3>
+          <p id="nextDayDate" class="metric-value">-</p>
+        </article>
+        <article class="metric-card">
+          <h3>Next-Day Predicted Close</h3>
+          <p id="nextDayClose" class="metric-value">0.00</p>
+        </article>
+        <article class="metric-card">
+          <h3>Confidence</h3>
+          <p id="confidence" class="metric-value">0%</p>
+        </article>
+        <article class="metric-card">
+          <h3>RMSE</h3>
+          <p id="rmse" class="metric-value">0.00</p>
+        </article>
+        <article class="metric-card">
+          <h3>MAE</h3>
+          <p id="mae" class="metric-value">0.00</p>
+        </article>
+      </section>
+
+      <section class="panel full">
+        <h2>Actual vs Predicted Price</h2>
+        <canvas id="priceChart"></canvas>
+      </section>
+
+      <section class="row two-col">
+        <article class="panel">
+          <h2>GA Convergence</h2>
+          <canvas id="gaChart"></canvas>
+        </article>
+        <article class="panel stacked-mini">
+          <div>
+            <h2>RSI</h2>
+            <canvas id="rsiChart"></canvas>
+          </div>
+          <div>
+            <h2>MACD Signal</h2>
+            <canvas id="macdChart"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel full">
+        <h2>Signal History</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Predicted Price</th>
+                <th>RSI</th>
+                <th>MACD</th>
+                <th>Signal</th>
+              </tr>
+            </thead>
+            <tbody id="signalTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Powered by Soft Computing - LSTM + GA + Fuzzy Logic
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

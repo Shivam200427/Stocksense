@@ -1,0 +1,13 @@
+{
+  "name": "stocksense-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js static server for StockSense frontend",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
